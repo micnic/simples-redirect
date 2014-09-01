@@ -1,6 +1,6 @@
 simples-redirect is a middleware to redirect connections to a specific protocol.
 
-#### Recommended for [simpleS 0.6+](http://micnic.github.com/simpleR/)
+#### Recommended for [simpleS 0.6+](http://micnic.github.com/simpleS/)
 
 ## Instalation
 

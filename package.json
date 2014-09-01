@@ -1,6 +1,6 @@
 {
 	"name": "simples-redirect",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "simpleS middleware to redirect connections",
 	"keywords": [
 		"middleware",
