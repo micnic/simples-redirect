@@ -1,0 +1,28 @@
+{
+	"name": "simples-redirect",
+	"version": "0.0.1",
+	"description": "simpleS middleware to redirect connections",
+	"keywords": [
+		"middleware",
+		"simples"
+	],
+	"homepage": "https://github.com/micnic/simples-redirect",
+	"bugs": {
+		"url": "https://github.com/micnic/simples-redirect/issues",
+		"email": "micnic90@gmail.com"
+	},
+	"license": "GPL-3.0",
+	"author": {
+		"name": "Micleusanu Nicu",
+		"email": "micnic90@gmail.com",
+		"url": "https://github.com/micnic"
+	},
+	"main": "index",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/micnic/simples-redirect"
+	},
+	"engines": {
+		"node": ">=0.10"
+	}
+}
