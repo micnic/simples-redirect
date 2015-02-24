@@ -1,6 +1,6 @@
 {
 	"name": "simples-redirect",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "simpleS middleware to redirect connections",
 	"keywords": [
 		"middleware",
@@ -23,6 +23,7 @@
 		"url": "https://github.com/micnic/simples-redirect"
 	},
 	"engines": {
+		"iojs": ">=1.0",
 		"node": ">=0.10"
 	}
 }

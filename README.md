@@ -1,6 +1,6 @@
 simples-redirect is a middleware to redirect connections to a specific protocol.
 
-#### Recommended for [simpleS 0.6+](http://micnic.github.com/simpleS/)
+#### Recommended for [simpleS 0.7+](http://micnic.github.com/simpleS/)
 
 ## Instalation
 
@@ -8,13 +8,13 @@ simples-redirect is a middleware to redirect connections to a specific protocol.
 
 ## Usage
 
-```javascript
+```js
 var simples = require('simples'),
-    simplesRedirect = require('simples-redirect');
+    redirect = require('simples-redirect');
 
 var server = simples();
 
-server.middleware(simplesRedirect({
+server.middleware(redirect({
     headers: {
         'X-Powered-By': 'simpleS'
     },
