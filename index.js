@@ -2,10 +2,7 @@
 
 // Check for a plain object
 function isObject(object) {
-
-	var prototype = Object.prototype.toString;
-
-	return prototype.call(object) === '[object Object]';
+	return Object.prototype.toString.call(object) === '[object Object]';
 }
 
 // Set the new connection location
@@ -17,20 +14,14 @@ function redirectConnection(connection, protocol, permanent) {
 	connection.redirect(location, permanent);
 }
 
-// Set the provided headers to the connection
-function setHeaders(connection, headers) {
-	Object.keys(headers).forEach(function (header) {
-		connection.header(header, headers[header]);
-	});
-}
-
 // Export the middleware builder
 module.exports = function (options) {
 
-	var headers = {},
+	var headers = [],
 		pattern = /^.+$/i,
 		permanent = false,
-		protocol = 'http';
+		protocol = 'http',
+		values = [];
 
 	// Check if the options parameter is a plain object
 	if (!isObject(options)) {
@@ -39,12 +30,17 @@ module.exports = function (options) {
 
 	// Prepare headers option
 	if (isObject(options.headers)) {
-		headers = options.headers;
+		Object.keys(options.headers).forEach(function (header) {
+			headers.push(header);
+			values.push(options.headers[header]);
+		});
 	}
 
 	// Prepare pattern option
 	if (options.pattern instanceof RegExp) {
 		pattern = options.pattern;
+	} else if (typeof options.pattern === 'string') {
+		pattern = RegExp(options.pattern, 'i');
 	}
 
 	// Prepare permanent option
@@ -59,8 +55,18 @@ module.exports = function (options) {
 
 	return function (connection, next) {
 		if (connection.protocol !== protocol && pattern.test(connection.path)) {
-			setHeaders(connection, headers);
+
+			// Set the headers only if they are defined
+			if (headers.length) {
+				headers.forEach(function (header, index) {
+					connection.header(header, values[index]);
+				});
+			}
+
+			// Redirect the connection
 			redirectConnection(connection, protocol, permanent);
+
+			// Stop the middleware chain
 			next(true);
 		} else {
 			next();

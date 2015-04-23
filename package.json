@@ -1,9 +1,10 @@
 {
 	"name": "simples-redirect",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "simpleS middleware to redirect connections",
 	"keywords": [
 		"middleware",
+		"redirect",
 		"simples"
 	],
 	"homepage": "https://github.com/micnic/simples-redirect",

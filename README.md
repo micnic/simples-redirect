@@ -28,7 +28,7 @@ server.middleware(redirect({
 
 `headers` : object - Headers to be set to the connection redirect, by default is an empty object
 
-`pattern` : regexp - Regular expression pattern to match the redirected locations, by default is `/^.+$/i`
+`pattern` : regexp or string - Regular expression pattern to match the redirected locations, by default is `/^.+$/i`
 
 `permanent` : boolean - Set status code as `301` for permanent redirects and `302` - otherwise, by default is false
 
